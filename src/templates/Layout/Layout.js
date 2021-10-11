@@ -80,7 +80,7 @@ const Layout = ({ title }) => {
                     <NavList>
                         {paths.map(item => (
                             <NavItem>
-                                <Link to={item[0]}>{item[1]}</Link>
+                                <Link to={`/${item[0]}`}>{item[1]}</Link>
                             </NavItem>
                         ))}
                     </NavList>
