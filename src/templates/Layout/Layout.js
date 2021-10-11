@@ -71,7 +71,7 @@ const Footer = styled.footer`
     text-align: center;
 `;
 
-const Layout = ({ title }) => {
+const Layout = ({ children, title }) => {
     return (
         <Wrapper>
             <Header>
@@ -89,7 +89,7 @@ const Layout = ({ title }) => {
             <Main>
                 <Section>
                     <h2>{title}</h2>
-                    <Content>Lorem</Content>
+                    <Content>{children}</Content>
                 </Section>
             </Main>
             <Footer><p>code by</p></Footer>
