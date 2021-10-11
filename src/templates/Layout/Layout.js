@@ -13,11 +13,11 @@ const paths = [
 
 const Wrapper = styled.div`
     display: grid;
-    grid-template-rows: 100px 1fr 20px;
+    grid-template-rows: 160px 1fr 20px;
     min-height: 100vh;
-    max-width: 1200px;
+    max-width: 1280px;
     margin: auto;
-    background-color: lightgray;
+    /* background-color: lightgray; */
 `;
 
 const Main = styled.main`
@@ -30,7 +30,7 @@ const Header = styled.header`
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    background-color: grey;
+    /* background-color: grey; */
 `;
 
 const NavList = styled.ul`
@@ -41,7 +41,7 @@ const NavList = styled.ul`
 
 const NavItem = styled.li`
     margin-left: 60px;
-    color: black;
+    /* color: black; */
     text-decoration: none;
 `;
 
@@ -54,15 +54,34 @@ const Logo = styled.div`
 const Section = styled.section`
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    justify-content: space-between;
     height: 100%;
-    padding: 100px 0;
+    padding: 20px 0;
+`;
+
+const SectionTitle = styled.h2`
+    position: relative;
+    margin-left: 13%;
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 24px;
+        right: -18px;
+        display: block;
+        height: 10px;
+        width: 10px;
+        background-color: black;
+        z-index: 1000;
+    }
 `;
 
 const Content = styled.article`
     height: 100%;
-    width: 45vw;
-    padding: 0 80px;
+    /* width: 65%; */
+    /* padding: 0 80px; */
     background-color: white;
 `;
 
@@ -88,7 +107,7 @@ const Layout = ({ children, title }) => {
             </Header>
             <Main>
                 <Section>
-                    <h2>{title}</h2>
+                    <SectionTitle>{title}</SectionTitle>
                     <Content>{children}</Content>
                 </Section>
             </Main>
