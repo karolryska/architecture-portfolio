@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "gatsby";
 import styled from "styled-components";
+import { getImage } from "gatsby-plugin-image";
 
 import ProjectLink from "./ProjectLink";
 
@@ -10,14 +10,15 @@ const Wrapper = styled.ul`
     grid-gap: 16px;
 `;
 
-const ProjectsList = () => (
+const ProjectsList = ({ projects }) => (
     <Wrapper>
-        <ProjectLink />
-        <ProjectLink />
-        <ProjectLink />
-        <ProjectLink />
-        <ProjectLink />
-        <ProjectLink />
+        {projects.map(project => {
+            const image = getImage(project.frontmatter.hero_image); 
+            const key = project.frontmatter.hero_image;
+            return (
+                <ProjectLink key={key} image={image} />
+            )
+        })};
     </Wrapper>
 );
 
