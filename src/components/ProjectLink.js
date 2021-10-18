@@ -27,10 +27,10 @@ const Wrapper = styled.li`
     }
 `;
 
-const ProjectLink = ({ image }) => (
+const ProjectLink = ({ image, slug }) => (
     <Wrapper>
         <Link 
-            to="/"
+            to={slug}
             style={{
                 width: "100%",
                 height: "100%",

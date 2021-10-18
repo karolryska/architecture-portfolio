@@ -14,11 +14,12 @@ const ProjectsList = ({ projects }) => (
     <Wrapper>
         {projects.map(project => {
             const image = getImage(project.frontmatter.hero_image); 
-            const key = project.frontmatter.hero_image;
+            {/* const key = project.frontmatter.hero_image; */}
+            const slug = project.slug;
             return (
-                <ProjectLink key={key} image={image} />
+                <ProjectLink key={slug} image={image} slug={slug}/>
             )
-        })};
+        })}
     </Wrapper>
 );
 
