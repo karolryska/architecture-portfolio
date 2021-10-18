@@ -98,7 +98,7 @@ const Layout = ({ children, title }) => {
                 <nav>
                     <NavList>
                         {paths.map(item => (
-                            <NavItem>
+                            <NavItem key={item[1]}>
                                 <Link to={`/${item[0]}`}>{item[1]}</Link>
                             </NavItem>
                         ))}
