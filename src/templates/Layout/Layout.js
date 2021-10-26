@@ -94,7 +94,9 @@ const Layout = ({ children, title }) => {
     return (
         <Wrapper>
             <Header>
-                <Logo />
+                <Link to="/" state={{ logo: false }}>
+                    <Logo />
+                </Link>
                 <nav>
                     <NavList>
                         {paths.map(item => (
