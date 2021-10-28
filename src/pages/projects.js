@@ -7,20 +7,19 @@ import ProjectsList from '../components/ProjectsList';
 const ProjectsPage = () => {
     const data = useStaticQuery(graphql`
         {
-            allMdx {
+            allMdx(filter: {frontmatter: {type: {eq: "project"}}}) {
                 nodes {
-                    id
-                    frontmatter {
-                        title
-                        hero_image {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
-                        }
+                  frontmatter {
+                    path
+                    hero_image {
+                      childImageSharp {
+                        gatsbyImageData
+                      }
                     }
-                    slug
+                  }
+                  id
                 }
-            }
+              }
         }
     `);
 

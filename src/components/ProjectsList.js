@@ -14,10 +14,9 @@ const ProjectsList = ({ projects }) => (
     <Wrapper>
         {projects.map(project => {
             const image = getImage(project.frontmatter.hero_image); 
-            {/* const key = project.frontmatter.hero_image; */}
-            const slug = project.slug;
+            const path = project.frontmatter.path;
             return (
-                <ProjectLink key={slug} image={image} slug={slug}/>
+                <ProjectLink key={path} image={image} slug={path}/>
             )
         })}
     </Wrapper>
