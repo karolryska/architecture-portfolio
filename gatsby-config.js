@@ -14,6 +14,12 @@ module.exports = {
     "gatsby-plugin-mdx",
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Add any options here
+      },
+    },
     "gatsby-transformer-sharp",
   ],
 };
