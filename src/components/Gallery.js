@@ -1,4 +1,6 @@
 import React from "react";
+import { getImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -26,20 +28,27 @@ const Image = styled.div`
     background-color: lightgray; 
 `;
 
-const Gallery = () => {
-    return (
-        <Wrapper>
-            <MainImage />
-            <ImagesContainer>
-                <Image />
-                <Image />
-                <Image />
-                <Image />
-                <Image />
-                <Image />
-            </ImagesContainer>
-        </Wrapper>
-    )
-};
+const Gallery = ({ images }) => (
+    <Wrapper>
+        <MainImage />
+        <ImagesContainer>
+            {images.map(item => {
+                const image = getImage(item);
+                return (
+                    <Image key={item.id}>
+                        <GatsbyImage 
+                            image={image}
+                            alt="image" 
+                            style={{
+                                width: "100%",
+                                height: "100%",
+                            }}
+                        />
+                    </Image>
+                 )
+            })}
+        </ImagesContainer>
+    </Wrapper>
+);
 
 export default Gallery;
