@@ -13,6 +13,7 @@ exports.createPages = ({ graphql, actions }) => {
                     path
                     type
                 }
+                slug
             }
         }
     }`)
@@ -26,7 +27,8 @@ exports.createPages = ({ graphql, actions }) => {
                     path: `/projects/${node.frontmatter.path}`,
                     component: path.resolve("./src/templates/projectLayout.js"),
                     context: {
-                        id: node.id
+                        id: node.id,
+                        dir: node.slug.substring(0, node.slug.length - 1)
                     }
                 });
             } else if (node.frontmatter.type === "interior") {
@@ -34,10 +36,11 @@ exports.createPages = ({ graphql, actions }) => {
                     path: `/interiors/${node.frontmatter.path}`,
                     component: path.resolve("./src/templates/projectLayout.js"),
                     context: {
-                        id: node.id
+                        id: node.id,
+                        dir: node.slug.substring(0, node.slug.length - 1)
                     }
                 });
             };
         });
-  });
+    });
 };
