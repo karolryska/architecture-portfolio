@@ -1,8 +1,7 @@
-import React from "react";
-import { Link } from "gatsby";
-import styled from "styled-components";
-import { GatsbyImage } from "gatsby-plugin-image";
-
+import React from 'react';
+import { Link } from 'gatsby';
+import styled from 'styled-components';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const Wrapper = styled.li`
     position: relative;
@@ -10,9 +9,9 @@ const Wrapper = styled.li`
     height: 12vw;
     width: 12vw;
     overflow: hidden;
-    
+
     &:before {
-        content: "title";
+        content: 'title';
         opacity: 0;
         position: absolute;
         z-index: 100;
@@ -20,33 +19,30 @@ const Wrapper = styled.li`
         left: 50%;
         transform: translate(-50%, -50%);
         color: white;
-
     }
     &:hover:before {
-            opacity: 1;
+        opacity: 1;
     }
 `;
 
 const ProjectLink = ({ image, slug }) => (
     <Wrapper>
-        <Link 
+        <Link
             to={slug}
             style={{
-                width: "100%",
-                height: "100%",
-            }}
-        >
-            <GatsbyImage 
+                width: '100%',
+                height: '100%',
+            }}>
+            <GatsbyImage
                 image={image}
-                alt="image" 
+                alt='image'
                 style={{
-                    width: "100%",
-                    height: "100%",
+                    width: '100%',
+                    height: '100%',
                 }}
             />
         </Link>
     </Wrapper>
 );
-
 
 export default ProjectLink;

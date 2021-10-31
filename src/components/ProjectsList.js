@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { getImage } from "gatsby-plugin-image";
+import React from 'react';
+import styled from 'styled-components';
+import { getImage } from 'gatsby-plugin-image';
 
-import ProjectLink from "./ProjectLink";
+import ProjectLink from './ProjectLink';
 
 const Wrapper = styled.ul`
     display: inline-grid;
@@ -12,12 +12,10 @@ const Wrapper = styled.ul`
 
 const ProjectsList = ({ projects }) => (
     <Wrapper>
-        {projects.map(project => {
-            const image = getImage(project.frontmatter.hero_image); 
+        {projects.map((project) => {
+            const image = getImage(project.frontmatter.hero_image);
             const path = project.frontmatter.path;
-            return (
-                <ProjectLink key={path} image={image} slug={path}/>
-            )
+            return <ProjectLink key={path} image={image} slug={path} />;
         })}
     </Wrapper>
 );

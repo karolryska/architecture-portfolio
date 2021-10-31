@@ -1,14 +1,14 @@
 import React from 'react';
 
-import Layout from "../templates/Layout/Layout";
+import Layout from '../templates/Layout/Layout';
 import AwardsList from '../components/AwardsList';
 
 const AwardsPage = () => {
     return (
-        <Layout title="Awards">
+        <Layout title='Awards'>
             <AwardsList />
         </Layout>
-    )
+    );
 };
 
 export default AwardsPage;

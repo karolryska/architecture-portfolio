@@ -1,25 +1,25 @@
 module.exports = {
-  siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "architecture-portfolio",
-  },
-  plugins: [
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: `content`,
-        path: `${__dirname}/content`,
-      }
+    siteMetadata: {
+        siteUrl: 'https://www.yourdomain.tld',
+        title: 'architecture-portfolio',
     },
-    "gatsby-plugin-mdx",
-    "gatsby-plugin-image",
-    "gatsby-plugin-sharp",
-    {
-      resolve: `gatsby-plugin-styled-components`,
-      options: {
-        // Add any options here
-      },
-    },
-    "gatsby-transformer-sharp",
-  ],
+    plugins: [
+        {
+            resolve: 'gatsby-source-filesystem',
+            options: {
+                name: `content`,
+                path: `${__dirname}/content`,
+            },
+        },
+        'gatsby-plugin-mdx',
+        'gatsby-plugin-image',
+        'gatsby-plugin-sharp',
+        {
+            resolve: `gatsby-plugin-styled-components`,
+            options: {
+                // Add any options here
+            },
+        },
+        'gatsby-transformer-sharp',
+    ],
 };

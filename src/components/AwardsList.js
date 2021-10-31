@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Wrapper = styled.ul`
     width: 30vw;
@@ -11,6 +11,7 @@ const Award = styled.p`
     font-size: 22px;
     font-weight: 400;
     cursor: default;
+
     &:hover {
         color: orange;
     }
@@ -18,10 +19,18 @@ const Award = styled.p`
 
 const AwardsList = () => (
     <Wrapper>
-        <li><Award>Lorem ipsum</Award></li>
-        <li><Award>Lorem ipsum</Award></li>
-        <li><Award>Lorem ipsum</Award></li>
-        <li><Award>Lorem ipsum</Award></li>
+        <li>
+            <Award>Lorem ipsum</Award>
+        </li>
+        <li>
+            <Award>Lorem ipsum</Award>
+        </li>
+        <li>
+            <Award>Lorem ipsum</Award>
+        </li>
+        <li>
+            <Award>Lorem ipsum</Award>
+        </li>
     </Wrapper>
 );
 

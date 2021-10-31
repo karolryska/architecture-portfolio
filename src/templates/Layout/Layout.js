@@ -1,15 +1,15 @@
-import React from "react";
-import { Link } from "gatsby";
-import styled from "styled-components";
+import React from 'react';
+import { Link } from 'gatsby';
+import styled from 'styled-components';
 
-import styles from "./Layout.module.css";
+import styles from './Layout.module.css';
 
 const paths = [
-    ["projects", "projects"],
-    ["interiors", "interiors"],
-    ["awards", "awards"],
-    ["about", "about me"]
-]
+    ['projects', 'projects'],
+    ['interiors', 'interiors'],
+    ['awards', 'awards'],
+    ['about', 'about me'],
+];
 
 const Wrapper = styled.div`
     display: grid;
@@ -66,7 +66,7 @@ const SectionTitle = styled.h2`
     font-weight: 800;
     letter-spacing: 1.4px;
     &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 24px;
         right: -18px;
@@ -94,12 +94,12 @@ const Layout = ({ children, title }) => {
     return (
         <Wrapper>
             <Header>
-                <Link to="/" state={{ logo: false }}>
+                <Link to='/' state={{ logo: false }}>
                     <Logo />
                 </Link>
                 <nav>
                     <NavList>
-                        {paths.map(item => (
+                        {paths.map((item) => (
                             <NavItem key={item[1]}>
                                 <Link to={`/${item[0]}`}>{item[1]}</Link>
                             </NavItem>
@@ -113,9 +113,11 @@ const Layout = ({ children, title }) => {
                     <Content>{children}</Content>
                 </Section>
             </Main>
-            <Footer><p>code by</p></Footer>
+            <Footer>
+                <p>code by</p>
+            </Footer>
         </Wrapper>
-    )
+    );
 };
 
 export default Layout;

@@ -1,7 +1,7 @@
-import React from "react";
-import { getImage } from "gatsby-plugin-image";
-import { GatsbyImage } from "gatsby-plugin-image";
-import styled from "styled-components";
+import React from 'react';
+import { getImage } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
     display: flex;
@@ -13,7 +13,7 @@ const MainImage = styled.div`
     height: 400px;
     width: 100%;
     margin-bottom: 20px;
-    background-color: lightgray; 
+    background-color: lightgray;
 `;
 
 const ImagesContainer = styled.div`
@@ -25,27 +25,27 @@ const ImagesContainer = styled.div`
 
 const Image = styled.div`
     height: 100px;
-    background-color: lightgray; 
+    background-color: lightgray;
 `;
 
 const Gallery = ({ images }) => (
     <Wrapper>
         <MainImage />
         <ImagesContainer>
-            {images.map(item => {
+            {images.map((item) => {
                 const image = getImage(item);
                 return (
                     <Image key={item.id}>
-                        <GatsbyImage 
+                        <GatsbyImage
                             image={image}
-                            alt="image" 
+                            alt='image'
                             style={{
-                                width: "100%",
-                                height: "100%",
+                                width: '100%',
+                                height: '100%',
                             }}
                         />
                     </Image>
-                 )
+                );
             })}
         </ImagesContainer>
     </Wrapper>
