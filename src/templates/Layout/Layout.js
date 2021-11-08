@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
+import Logo from '../../components/Logo';
+
 import styles from './Layout.module.css';
 
 const paths = [
@@ -17,7 +19,6 @@ const Wrapper = styled.div`
     min-height: 100vh;
     max-width: 1280px;
     margin: auto;
-    /* background-color: lightgray; */
 `;
 
 const Main = styled.main`
@@ -30,7 +31,6 @@ const Header = styled.header`
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    /* background-color: grey; */
 `;
 
 const NavList = styled.ul`
@@ -41,14 +41,7 @@ const NavList = styled.ul`
 
 const NavItem = styled.li`
     margin-left: 60px;
-    /* color: black; */
     text-decoration: none;
-`;
-
-const Logo = styled.div`
-    height: 40px;
-    width: 40px;
-    background-color: black;
 `;
 
 const Section = styled.section`
@@ -80,8 +73,6 @@ const SectionTitle = styled.h2`
 
 const Content = styled.article`
     height: 100%;
-    /* width: 65%; */
-    /* padding: 0 80px; */
     background-color: white;
 `;
 
@@ -95,7 +86,7 @@ const Layout = ({ children, title }) => {
         <Wrapper>
             <Header>
                 <Link to='/' state={{ logo: false }}>
-                    <Logo />
+                    <Logo height={50} />
                 </Link>
                 <nav>
                     <NavList>
