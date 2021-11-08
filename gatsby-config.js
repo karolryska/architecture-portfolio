@@ -1,5 +1,5 @@
 module.exports = {
-    pathPrefix: '/architecture-portfolio',
+    pathPrefix: `/architecture-portfolio`,
     siteMetadata: {
         siteUrl: 'https://www.yourdomain.tld',
         title: 'architecture-portfolio',
