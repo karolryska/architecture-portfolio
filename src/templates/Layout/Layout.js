@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 import Logo from '../../components/Logo';
 
@@ -81,7 +82,10 @@ const Footer = styled.footer`
     text-align: center;
 `;
 
-const Layout = ({ children, title }) => {
+const Layout = ({ title, children }) => {
+    useEffect(() => {
+        console.log('mount');
+    });
     return (
         <Wrapper>
             <Header>
@@ -92,7 +96,11 @@ const Layout = ({ children, title }) => {
                     <NavList>
                         {paths.map((item) => (
                             <NavItem key={item[1]}>
-                                <Link to={`/${item[0]}`}>{item[1]}</Link>
+                                <Link
+                                    to={`/${item[0]}`}
+                                    state={{ name: item[1] }}>
+                                    {item[1]}
+                                </Link>
                             </NavItem>
                         ))}
                     </NavList>

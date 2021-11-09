@@ -24,9 +24,9 @@ const ProjectsPage = () => {
     `);
 
     return (
-        <Layout title='Projects'>
+        <>
             <ProjectsList projects={data.allMdx.nodes} />
-        </Layout>
+        </>
     );
 };
 

@@ -5,9 +5,9 @@ import AwardsList from '../components/AwardsList';
 
 const AwardsPage = () => {
     return (
-        <Layout title='Awards'>
+        <>
             <AwardsList />
-        </Layout>
+        </>
     );
 };
 
