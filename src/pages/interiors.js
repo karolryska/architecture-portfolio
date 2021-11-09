@@ -1,7 +1,5 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-
-import Layout from '../templates/Layout/Layout';
 import ProjectsList from '../components/ProjectsList';
 
 const InteriorsPage = () => {

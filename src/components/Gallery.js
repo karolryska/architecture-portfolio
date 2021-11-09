@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getImage } from 'gatsby-plugin-image';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 const gridGap = 10;
 const calcImageHeight = (containerWidth) => {
@@ -9,7 +10,7 @@ const calcImageHeight = (containerWidth) => {
     return (imageWidth / 3) * 2;
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
     display: flex;
     flex-direction: column;
     width: 600px;
@@ -41,8 +42,13 @@ const Gallery = ({ images }) => {
     const handleClick = (index) => {
         setMainImage(images[index]);
     };
+    useEffect(() => () => console.log('unmount'));
     return (
-        <Wrapper>
+        <Wrapper
+            initial={{ y: -10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.2, delay: 0.4 }}
+            exit={{ y: -10, opacity: 0 }}>
             <MainImage>
                 <GatsbyImage
                     image={getImage(mainImage)}

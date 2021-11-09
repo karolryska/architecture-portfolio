@@ -26,7 +26,7 @@ const Main = styled.main`
     align-self: stretch;
 `;
 
-const Header = styled.header`
+const Header = styled(motion.header)`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -53,7 +53,7 @@ const Section = styled.section`
     padding: 20px 0;
 `;
 
-const SectionTitle = styled.h2`
+const SectionTitle = styled(motion.h2)`
     position: relative;
     margin-left: 13%;
     font-size: 36px;
@@ -72,7 +72,7 @@ const SectionTitle = styled.h2`
     }
 `;
 
-const Content = styled.article`
+const Content = styled(motion.article)`
     height: 100%;
     background-color: white;
 `;
@@ -88,7 +88,10 @@ const Layout = ({ title, children }) => {
     });
     return (
         <Wrapper>
-            <Header>
+            <Header
+                initial={{ y: -10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.2 }}>
                 <Link to='/' state={{ logo: false }}>
                     <Logo height={50} />
                 </Link>
@@ -108,8 +111,18 @@ const Layout = ({ title, children }) => {
             </Header>
             <Main>
                 <Section>
-                    <SectionTitle>{title}</SectionTitle>
-                    <Content>{children}</Content>
+                    <SectionTitle
+                        initial={{ y: -10, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.2, delay: 0.2 }}>
+                        {title}
+                    </SectionTitle>
+                    <Content
+                        initial={{ y: -10, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.2, delay: 0.4 }}>
+                        {children}
+                    </Content>
                 </Section>
             </Main>
             <Footer>
