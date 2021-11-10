@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 import Logo from '../../components/Logo';
 
@@ -25,13 +26,18 @@ const Main = styled.main`
     align-self: stretch;
 `;
 
-const Header = styled.header`
+const Header = styled(motion.header)`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     height: 100%;
 `;
+
+const headerVariants = {
+    initial: { y: -50, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+};
 
 const NavList = styled.ul`
     display: flex;
@@ -81,10 +87,14 @@ const Footer = styled.footer`
     text-align: center;
 `;
 
-const Layout = ({ children, title }) => {
+const Layout = ({ title, children, animation }) => {
     return (
         <Wrapper>
-            <Header>
+            <Header
+                variants={animation && headerVariants}
+                initial='initial'
+                animate='animate'
+                transition={{ duration: 0.2 }}>
                 <Link to='/' state={{ logo: false }}>
                     <Logo height={50} />
                 </Link>
@@ -92,7 +102,11 @@ const Layout = ({ children, title }) => {
                     <NavList>
                         {paths.map((item) => (
                             <NavItem key={item[1]}>
-                                <Link to={`/${item[0]}`}>{item[1]}</Link>
+                                <Link
+                                    to={`/${item[0]}`}
+                                    state={{ animation: false }}>
+                                    {item[1]}
+                                </Link>
                             </NavItem>
                         ))}
                     </NavList>
@@ -109,6 +123,10 @@ const Layout = ({ children, title }) => {
             </Footer>
         </Wrapper>
     );
+};
+
+Layout.defaultProps = {
+    animation: false,
 };
 
 export default Layout;
