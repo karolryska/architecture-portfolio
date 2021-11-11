@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 import Logo from '../../components/Logo';
-
+import useMobile from '../../hooks/useMobile';
 import styles from './Layout.module.css';
 
 const paths = [
@@ -15,15 +15,13 @@ const paths = [
 ];
 
 const Wrapper = styled.div`
-    display: grid;
-    grid-template-rows: 160px 1fr 20px;
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
-    max-width: 1280px;
+    max-width: ${(props) => (props.isMobile ? '100vw' : '1280px')};
+    padding: ${(props) => (props.isMobile ? '0 25px' : '0 10vw')};
     margin: auto;
-`;
-
-const Main = styled.main`
-    align-self: stretch;
+    overflow: hidden;
 `;
 
 const Header = styled(motion.header)`
@@ -31,13 +29,25 @@ const Header = styled(motion.header)`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
+    height: ${(props) => (props.isMobile ? '100px' : '160px')};
+    width: 100%;
 `;
 
 const headerVariants = {
     initial: { y: -50, opacity: 0 },
     animate: { y: 0, opacity: 1 },
 };
+
+const Main = styled.main`
+    width: 100%;
+    flex-grow: 1;
+`;
+
+const Nav = styled.nav`
+    width: 100%;
+    flex-basis: 0;
+    flex-grow: 1;
+`;
 
 const NavList = styled.ul`
     display: flex;
@@ -52,15 +62,17 @@ const NavItem = styled.li`
 
 const Section = styled.section`
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: ${(props) => (props.isMobile ? 'column' : 'row')};
+    justify-content: ${(props) =>
+        props.isMobile ? 'flex-start' : 'space-between'};
     height: 100%;
     padding: 20px 0;
 `;
 
 const SectionTitle = styled.h2`
+    align-self: flex-start;
     position: relative;
-    margin-left: 13%;
+    margin: ${(props) => (props.isMobile ? '0 0 14px' : '0 0 0 8%')};
     font-size: 36px;
     font-weight: 800;
     letter-spacing: 1.4px;
@@ -88,9 +100,14 @@ const Footer = styled.footer`
 `;
 
 const Layout = ({ title, children, animation }) => {
+    const isMobile = useMobile();
+    useEffect(() => {
+        console.log(isMobile);
+    });
     return (
-        <Wrapper>
+        <Wrapper isMobile={isMobile}>
             <Header
+                isMobile={isMobile}
                 variants={animation && headerVariants}
                 initial='initial'
                 animate='animate'
@@ -113,8 +130,8 @@ const Layout = ({ title, children, animation }) => {
                 </nav>
             </Header>
             <Main>
-                <Section>
-                    <SectionTitle>{title}</SectionTitle>
+                <Section isMobile={isMobile}>
+                    <SectionTitle isMobile={isMobile}>{title}</SectionTitle>
                     <Content>{children}</Content>
                 </Section>
             </Main>
