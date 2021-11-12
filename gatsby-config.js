@@ -22,5 +22,11 @@ module.exports = {
             },
         },
         'gatsby-transformer-sharp',
+        {
+            resolve: `gatsby-plugin-layout`,
+            options: {
+                component: require.resolve(`./src/templates/Layout/Layout.js`),
+            },
+        },
     ],
 };
