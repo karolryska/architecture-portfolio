@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkarchitecture_portfolio=self.webpackChunkarchitecture_portfolio||[]).push([[682],{5518:function(e,t,r){r.r(t);var u=r(7294),c=r(2054);t.default=function(){return u.createElement(c.Z,{title:"About me"})}}}]);
-//# sourceMappingURL=component---src-pages-about-js-ec1f0d55edec1b65d4d3.js.map
