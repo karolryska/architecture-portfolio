@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import Layout from '../templates/Layout/Layout';
+import MainContent from '../components/MainContent';
 import ProjectsList from '../components/ProjectsList';
 
 const InteriorsPage = () => {
@@ -24,9 +24,9 @@ const InteriorsPage = () => {
     `);
 
     return (
-        <Layout title='Interiors'>
+        <MainContent title='Interiors'>
             <ProjectsList projects={data.allMdx.nodes} />
-        </Layout>
+        </MainContent>
     );
 };
 

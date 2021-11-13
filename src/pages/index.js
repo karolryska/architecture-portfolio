@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Layout from '../templates/Layout/Layout';
+import MainContent from '../components/MainContent';
 import Logo from '../components/Logo';
 
 const IndexPage = () => {
@@ -9,11 +9,8 @@ const IndexPage = () => {
 
     return (
         <>
-            {logoIsActive ? (
-                <Logo animation={true} height={100} />
-            ) : (
-                <Layout title='Featured' animation={true}></Layout>
-            )}
+            {logoIsActive && <Logo animation={true} height={100} />}
+            <MainContent title='Featured' animation={true}></MainContent>
         </>
     );
 };

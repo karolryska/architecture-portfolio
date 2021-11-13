@@ -1,13 +1,13 @@
 import React from 'react';
 
-import Layout from '../templates/Layout/Layout';
+import MainContent from '../components/MainContent';
 import AwardsList from '../components/AwardsList';
 
 const AwardsPage = () => {
     return (
-        <Layout title='Awards'>
+        <MainContent title='Awards'>
             <AwardsList />
-        </Layout>
+        </MainContent>
     );
 };
 

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Layout from '../templates/Layout/Layout';
+import MainContent from '../components/MainContent';
 
 const AboutPage = () => {
-    return <Layout title='About me'></Layout>;
+    return <MainContent time='About me' />;
 };
 
 export default AboutPage;
