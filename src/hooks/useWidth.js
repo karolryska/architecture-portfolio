@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const useMobile = () => {
+const useWidth = () => {
     const isBrowser = typeof window !== 'undefined';
     const [width, setWidth] = useState(isBrowser ? window.innerWidth : 1000);
 
@@ -17,7 +17,7 @@ const useMobile = () => {
         };
     }, []);
 
-    return width < 767 ? true : false;
+    return [width < 767 ? true : false, width];
 };
 
-export default useMobile;
+export default useWidth;
