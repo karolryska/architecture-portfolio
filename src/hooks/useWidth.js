@@ -17,7 +17,7 @@ const useWidth = () => {
         };
     }, []);
 
-    return [width < 767 ? true : false, width];
+    return [width < 767 ? true : false];
 };
 
 export default useWidth;
