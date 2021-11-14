@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import styles from './Layout.module.css';
 
+import styles from './Layout.module.css';
 import useWidth from '../../hooks/useWidth';
 import Logo from '../../components/Logo';
 import NavMobile from '../components/NavMobile';
@@ -20,11 +20,15 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    max-width: ${(props) => (props.isMobile ? '100vw' : '1280px')};
-    padding: ${(props) => props.width < 1200 && '0 10vw'};
+    max-width: 1280px;
+    padding: 0 10vw;
     margin: auto;
     overflow: hidden;
     text-align: center;
+    @media (min-width: 769px) {
+        max-width: 1280px;
+        padding: 0;
+    }
 `;
 
 const Header = styled(motion.header)`
@@ -32,14 +36,12 @@ const Header = styled(motion.header)`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: ${(props) => (props.isMobile ? '100px' : '160px')};
+    height: 100px;
     width: 100%;
+    @media (min-width: 769px) {
+        height: 160px;
+    }
 `;
-
-const headerVariants = {
-    initial: { y: -50, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
-};
 
 const Main = styled.main`
     width: 100%;
@@ -52,13 +54,11 @@ const Footer = styled.footer`
 `;
 
 const Layout = ({ children }) => {
-    const [isMobile, width] = useWidth();
+    let [isMobile] = useWidth();
 
     return (
-        <Wrapper isMobile={isMobile} width={width}>
+        <Wrapper>
             <Header
-                isMobile={isMobile}
-                variants={headerVariants}
                 initial='initial'
                 animate='animate'
                 transition={{ duration: 0.2, delay: 2.5 }}>
