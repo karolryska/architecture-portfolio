@@ -1,14 +1,15 @@
 import React from 'react';
-import Layout from './Layout/Layout';
 import { graphql } from 'gatsby';
+
+import MainContent from '../components/MainContent';
 import Gallery from '../components/Gallery';
 
 const projectLayout = ({ data, pageContext }) => {
     console.log(pageContext);
     return (
-        <Layout title={data.mdx.frontmatter.title}>
+        <MainContent title={data.mdx.frontmatter.title}>
             <Gallery images={data.allFile.nodes}></Gallery>
-        </Layout>
+        </MainContent>
     );
 };
 
