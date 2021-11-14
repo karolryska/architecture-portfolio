@@ -2,6 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
+const Background = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    z-index: 100;
+`;
+
 const Wrapper = styled.div`
     position: ${(props) => props.animation && 'fixed'};
     top: 50vh;
@@ -13,6 +23,7 @@ const Wrapper = styled.div`
     width: ${(props) => props.height * 2.25}px;
     transform: ${(props) => props.animation && 'translate(-50%, -50%)'};
     overflow: hidden;
+    z-index: 101;
 `;
 
 const Vertical = styled(motion.div)`
@@ -52,27 +63,30 @@ const dotVariants = {
 };
 
 const Logo = ({ animation, height }) => (
-    <Wrapper animation={animation} height={height}>
-        <Vertical
-            variants={animation && verticalVariants}
-            initial='initial'
-            animate='animate'
-            transition={{ duration: 0.2 }}
-        />
-        <Horizontal
-            variants={animation && horizontalVariants}
-            initial='initial'
-            animate='animate'
-            transition={{ duration: 0.2, delay: 0.2 }}
-        />
-        <Dot
-            variants={animation && dotVariants}
-            initial='initial'
-            animate='animate'
-            style={{ originX: 0 }}
-            transition={{ duration: 0.2, delay: 0.4 }}
-        />
-    </Wrapper>
+    <>
+        {animation && <Background />}
+        <Wrapper animation={animation} height={height}>
+            <Vertical
+                variants={animation && verticalVariants}
+                initial='initial'
+                animate='animate'
+                transition={{ duration: 0.2 }}
+            />
+            <Horizontal
+                variants={animation && horizontalVariants}
+                initial='initial'
+                animate='animate'
+                transition={{ duration: 0.2, delay: 0.2 }}
+            />
+            <Dot
+                variants={animation && dotVariants}
+                initial='initial'
+                animate='animate'
+                style={{ originX: 0 }}
+                transition={{ duration: 0.2, delay: 0.4 }}
+            />
+        </Wrapper>
+    </>
 );
 
 export default Logo;
