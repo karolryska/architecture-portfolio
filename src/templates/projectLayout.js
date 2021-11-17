@@ -4,10 +4,11 @@ import { graphql } from 'gatsby';
 import MainContent from '../components/MainContent';
 import Gallery from '../components/Gallery';
 
-const projectLayout = ({ data, pageContext }) => {
-    console.log(pageContext);
+const projectLayout = ({ data }) => {
     return (
-        <MainContent title={data.mdx.frontmatter.title}>
+        <MainContent
+            title={data.mdx.frontmatter.title}
+            description={data.mdx.body}>
             <Gallery images={data.allFile.nodes}></Gallery>
         </MainContent>
     );
@@ -19,6 +20,7 @@ export const query = graphql`
             frontmatter {
                 title
             }
+            body
             slug
         }
         allFile(
