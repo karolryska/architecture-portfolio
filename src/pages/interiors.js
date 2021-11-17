@@ -20,11 +20,16 @@ const InteriorsPage = () => {
                     }
                 }
             }
+            mdx(frontmatter: { title: { eq: "interiors" } }) {
+                body
+            }
         }
     `);
 
+    console.log(data.mdx.body);
+
     return (
-        <MainContent title='Interiors'>
+        <MainContent title='Interiors' description={data.mdx.body}>
             <ProjectsList projects={data.allMdx.nodes} />
         </MainContent>
     );

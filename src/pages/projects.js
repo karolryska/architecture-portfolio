@@ -20,11 +20,14 @@ const ProjectsPage = () => {
                     id
                 }
             }
+            mdx(frontmatter: { title: { eq: "projects" } }) {
+                body
+            }
         }
     `);
 
     return (
-        <MainContent title='Projects'>
+        <MainContent title='Projects' description={data.mdx.body}>
             <ProjectsList projects={data.allMdx.nodes} />
         </MainContent>
     );
