@@ -7,12 +7,13 @@ import useWidth from '../hooks/useWidth';
 const Section = styled.section`
     display: flex;
     flex-direction: column;
-    height: 100%;
+    min-height: 100%;
     padding: 20px 0;
 
     @media (min-width: 769px) {
         flex-direction: row;
         justify-content: space-between;
+        padding: 0 50px;
     }
 `;
 
@@ -22,7 +23,8 @@ const Header = styled.div`
     justify-content: flex-start;
 
     @media (min-width: 769px) {
-        margin: 0 80px 0 6%;
+        width: 40%;
+        padding: 100px 180px 0 0;
     }
 `;
 
