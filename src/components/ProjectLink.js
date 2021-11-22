@@ -6,43 +6,51 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 const Wrapper = styled.li`
     position: relative;
     display: block;
-    height: 12vw;
-    width: 12vw;
+    height: 80vw;
+    width: 100%;
+    margin-bottom: 16px;
     overflow: hidden;
 
-    &:before {
-        content: 'title';
-        opacity: 0;
-        position: absolute;
-        z-index: 100;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: white;
-    }
-    &:hover:before {
-        opacity: 1;
+    @media (min-width: 769px) {
+        height: 100%;
+        width: 100%;
+
+        &:before {
+            content: '${(props) => props.title}';
+            position: absolute;
+            z-index: 100;
+            top: 50%;
+            left: 50%;
+            color: white;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+        }
+        &:hover:before {
+            opacity: 1;
+        }
     }
 `;
 
-const ProjectLink = ({ image, slug }) => (
-    <Wrapper>
-        <Link
-            to={slug}
-            style={{
-                width: '100%',
-                height: '100%',
-            }}>
-            <GatsbyImage
-                image={image}
-                alt='image'
+const ProjectLink = ({ image, slug }) => {
+    return (
+        <Wrapper title={slug}>
+            <Link
+                to={slug}
                 style={{
                     width: '100%',
                     height: '100%',
-                }}
-            />
-        </Link>
-    </Wrapper>
-);
+                }}>
+                <GatsbyImage
+                    image={image}
+                    alt='image'
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                    }}
+                />
+            </Link>
+        </Wrapper>
+    );
+};
 
 export default ProjectLink;
