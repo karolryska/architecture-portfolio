@@ -20,7 +20,7 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    max-width: 1280px;
+    max-width: 1200px;
     padding: 0 10vw;
     margin: auto;
     overflow: hidden;
@@ -59,8 +59,8 @@ const Layout = ({ children }) => {
     return (
         <Wrapper>
             <Header
-                initial='initial'
-                animate='animate'
+                initial={{ y: -50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.2, delay: 2.5 }}>
                 <Link to='/' state={{ logo: false }}>
                     <Logo height={50} />
