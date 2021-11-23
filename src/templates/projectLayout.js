@@ -8,7 +8,8 @@ const projectLayout = ({ data }) => {
     return (
         <MainContent
             title={data.mdx.frontmatter.title}
-            description={data.mdx.body}>
+            description={data.mdx.body}
+            descritpionOnMobile='true'>
             <Gallery images={data.allFile.nodes}></Gallery>
         </MainContent>
     );
