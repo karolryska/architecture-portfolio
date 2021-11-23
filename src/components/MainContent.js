@@ -50,7 +50,13 @@ const Title = styled(motion.h2)`
 `;
 
 const Description = styled(motion.p)`
-    text-align: left;
+    display: ${(props) =>
+        props.visibleOnMobile === 'true' ? 'inline' : 'none'};
+
+    @media (min-width: 769px) {
+        display: inline;
+        text-align: left;
+    }
 `;
 
 const Content = styled.article`
@@ -71,7 +77,7 @@ const contentTransitionDelay = {
     delay: 2.7,
 };
 
-const MainContent = ({ children, title, description }) => {
+const MainContent = ({ children, title, description, descritpionMobile }) => {
     const [isMobile] = useWidth();
     return (
         <Section isMobile={isMobile}>
@@ -84,7 +90,7 @@ const MainContent = ({ children, title, description }) => {
                     {title}
                 </Title>
                 {description && (
-                    <Description>
+                    <Description visibleOnMobile={descritpionMobile}>
                         <MDXRenderer>{description}</MDXRenderer>
                     </Description>
                 )}
