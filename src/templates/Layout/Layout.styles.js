@@ -23,6 +23,7 @@ export const Header = styled(motion.header)`
     align-items: center;
     height: 100px;
     width: 100%;
+    z-index: 100;
     @media (min-width: 769px) {
         height: 160px;
     }
