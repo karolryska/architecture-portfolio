@@ -1,28 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import styled from 'styled-components';
 import { getImage } from 'gatsby-plugin-image';
-
-import ProjectLink from './ProjectLink';
-
-const Wrapper = styled.ul`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 20px;
-
-    @media (min-width: 769px) {
-        display: inline-grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-auto-rows: ${(props) => (props.wrapperWidth - 32) / 3}px;
-        grid-gap: 16px;
-    }
-`;
-
-const Placehholder = styled.div`
-    height: 100%;
-    width: 100%;
-    background-color: lightgrey;
-`;
+import { Wrapper, Placeholder } from './ProjectsList.styles';
+import ProjectLink from '../ProjectLink/ProjectLink';
 
 const ProjectsList = ({ projects }) => {
     const [wrapperWidth, setWrapperWidth] = useState();
@@ -46,13 +25,13 @@ const ProjectsList = ({ projects }) => {
                     />
                 );
             })}
-            <Placehholder />
-            <Placehholder />
-            <Placehholder />
-            <Placehholder />
-            <Placehholder />
-            <Placehholder />
-            <Placehholder />
+            <Placeholder />
+            <Placeholder />
+            <Placeholder />
+            <Placeholder />
+            <Placeholder />
+            <Placeholder />
+            <Placeholder />
         </Wrapper>
     );
 };

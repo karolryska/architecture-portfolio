@@ -1,8 +1,8 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import MainContent from '../components/MainContent';
-import ProjectsList from '../components/ProjectsList';
+import MainContent from '../templates/components/Main/Main';
+import ProjectsList from '../components/ProjecstList/ProjectsList';
 
 const InteriorsPage = () => {
     const data = useStaticQuery(graphql`

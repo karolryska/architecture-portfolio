@@ -4,7 +4,7 @@ import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import { FaFacebookF, FaPinterestP, FaLinkedinIn } from 'react-icons/fa';
 
-import MainContent from '../components/MainContent';
+import MainContent from '../templates/components/Main/Main';
 
 const ContentWrapper = styled.div`
     display: flex;

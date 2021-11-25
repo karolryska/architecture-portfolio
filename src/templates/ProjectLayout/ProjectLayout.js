@@ -1,10 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import MainContent from '../components/MainContent';
-import Gallery from '../components/Gallery';
+import MainContent from '../components/Main/Main';
+import Gallery from '../../components/Gallery/Gallery';
 
-const projectLayout = ({ data }) => {
+const ProjectLayout = ({ data }) => {
     return (
         <MainContent
             title={data.mdx.frontmatter.title}
@@ -40,4 +40,4 @@ export const query = graphql`
     }
 `;
 
-export default projectLayout;
+export default ProjectLayout;

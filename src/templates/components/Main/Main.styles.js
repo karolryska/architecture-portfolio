@@ -1,10 +1,7 @@
-import React from 'react';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import useWidth from '../hooks/useWidth';
 
-const Section = styled.section`
+export const Section = styled.section`
     display: flex;
     flex-direction: column;
     min-height: 100%;
@@ -17,7 +14,7 @@ const Section = styled.section`
     }
 `;
 
-const Header = styled.div`
+export const Header = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -28,7 +25,7 @@ const Header = styled.div`
     }
 `;
 
-const Title = styled(motion.h2)`
+export const Title = styled(motion.h2)`
     align-self: flex-start;
     position: relative;
     margin: 0 0 14px;
@@ -49,7 +46,7 @@ const Title = styled(motion.h2)`
     }
 `;
 
-const Description = styled(motion.p)`
+export const Description = styled(motion.p)`
     display: ${(props) =>
         props.visibleOnMobile === 'true' ? 'inline' : 'none'};
 
@@ -59,7 +56,7 @@ const Description = styled(motion.p)`
     }
 `;
 
-const Content = styled.article`
+export const Content = styled.article`
     min-height: 100%;
 
     @media (min-width: 769px) {
@@ -67,37 +64,12 @@ const Content = styled.article`
     }
 `;
 
-const contentTransition = {
+export const contentTransition = {
     duration: 0.2,
     delay: 0.2,
 };
 
-const contentTransitionDelay = {
+export const contentTransitionDelay = {
     duration: 0.2,
     delay: 2.7,
 };
-
-const MainContent = ({ children, title, description, descritpionMobile }) => {
-    const [isMobile] = useWidth();
-    return (
-        <Section isMobile={isMobile}>
-            <Header>
-                <Title
-                    isMobile={isMobile}
-                    initial={{ y: -20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={contentTransition}>
-                    {title}
-                </Title>
-                {description && (
-                    <Description visibleOnMobile={descritpionMobile}>
-                        <MDXRenderer>{description}</MDXRenderer>
-                    </Description>
-                )}
-            </Header>
-            <Content>{children}</Content>
-        </Section>
-    );
-};
-
-export default MainContent;

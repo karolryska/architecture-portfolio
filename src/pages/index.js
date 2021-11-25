@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import MainContent from '../components/MainContent';
-import Logo from '../components/Logo';
+import MainContent from '../templates/components/Main/Main';
+import Logo from '../components/Logo/Logo';
 
 const IndexPage = () => {
     const [logoIsActive, setLogoIsActive] = useState(true);
