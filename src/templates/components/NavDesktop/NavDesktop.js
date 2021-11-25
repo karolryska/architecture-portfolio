@@ -8,7 +8,10 @@ const NavDesktop = ({ paths }) => {
             <NavList>
                 {paths.map((item) => (
                     <NavItem key={item[1]}>
-                        <Link to={`/${item[0]}`} state={{ animation: false }}>
+                        <Link
+                            to={`/${item[0]}`}
+                            style={{ color: 'black' }}
+                            state={{ animation: false }}>
                             {item[1]}
                         </Link>
                     </NavItem>
