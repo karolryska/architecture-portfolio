@@ -18,11 +18,14 @@ const IndexPage = () => {
 
     return (
         <>
-            {logoIsActive && <Logo animation={true} height={100} />}
-            <MainContent
-                title='Featured'
-                description={data.mdx.body}
-                animation={true}></MainContent>
+            {logoIsActive ? (
+                <Logo animation={true} height={100} />
+            ) : (
+                <MainContent
+                    title='Featured'
+                    description={data.mdx.body}
+                    animation={true}></MainContent>
+            )}
         </>
     );
 };
