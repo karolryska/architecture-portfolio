@@ -8,18 +8,21 @@ export const Wrapper = styled(motion.nav)`
     height: 100vh;
     width: 100vw;
     background-color: white;
-    z-index: 100;
+    z-index: -1;
 `;
 
 export const NavList = styled.ul`
     display: flex;
     flex-direction: column;
-    padding-top: 40px;
+    padding: 120px 0 0 10vw;
     list-style: none;
 `;
 
 export const NavItem = styled.li`
     margin-bottom: 30px;
-    font-size: 24px;
+    font-size: 36px;
+    font-weight: 800;
     text-decoration: none;
+    text-align: left;
+    color: black;
 `;
