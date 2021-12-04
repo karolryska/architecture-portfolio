@@ -23,6 +23,10 @@ export const Wrapper = styled.div`
     transform: ${(props) => props.animation && 'translate(-50%, -50%)'};
     overflow: hidden;
     z-index: 101;
+
+    &:hover div {
+        background-color: ${(props) => props.theme.colors.yellow};
+    }
 `;
 
 export const Vertical = styled(motion.div)`
@@ -30,6 +34,7 @@ export const Vertical = styled(motion.div)`
     grid-row-start: 1;
     grid-row-end: 3;
     background-color: black;
+    transition: background-color 0.2s;
 `;
 
 export const verticalVariants = {
@@ -43,6 +48,7 @@ export const Horizontal = styled(motion.div)`
     grid-row-start: 1;
     grid-row-end: 1;
     background-color: black;
+    transition: background-color 0.2s;
 `;
 
 export const horizontalVariants = {
@@ -54,6 +60,7 @@ export const Dot = styled(motion.div)`
     grid-column-start: 5;
     grid-row-start: 2;
     background-color: black;
+    transition: background-color 0.2s;
 `;
 
 export const dotVariants = {
