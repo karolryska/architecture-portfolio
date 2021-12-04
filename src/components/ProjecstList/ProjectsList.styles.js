@@ -4,7 +4,8 @@ export const Wrapper = styled.ul`
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-top: 20px;
+    padding: 0;
+    margin-top: 0;
 
     @media (min-width: 769px) {
         display: inline-grid;
