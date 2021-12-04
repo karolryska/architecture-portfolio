@@ -28,7 +28,7 @@ export const Header = styled.div`
 export const Title = styled(motion.h2)`
     align-self: flex-start;
     position: relative;
-    margin: 0 0 14px;
+    margin: 0 0 20px;
     font-size: 36px;
     font-weight: 800;
     letter-spacing: 1.4px;
@@ -36,19 +36,27 @@ export const Title = styled(motion.h2)`
     &::before {
         content: '';
         position: absolute;
-        top: 24px;
-        right: -18px;
+        top: 26px;
+        right: -12px;
         display: block;
-        height: 10px;
-        width: 10px;
+        height: 8px;
+        width: 8px;
         background-color: black;
         z-index: 10;
     }
 `;
 
 export const Description = styled(motion.p)`
-    display: ${(props) =>
-        props.visibleOnMobile === 'true' ? 'inline' : 'none'};
+    display: ${(props) => (props.visibleOnMobile === 'true' ? 'inline' : 'none')};
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+
+    & p {
+        margin: 0;
+    }
 
     @media (min-width: 769px) {
         display: inline;
