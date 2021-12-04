@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import styles from './Layout.module.css';
 import Theme from '../../theme/theme';
+import { GlobalStyle } from '../../theme/GlobalStyle';
 import useWidth from '../../hooks/useWidth';
 import { Wrapper, Header, Main, Footer } from './Layout.styles';
 import Logo from '../../components/Logo/Logo';
@@ -20,10 +20,11 @@ const Layout = ({ children }) => {
 
     return (
         <Theme>
+            <GlobalStyle />
             <Wrapper>
                 <Header initial={{ y: -50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.2, delay: 2.5 }}>
                     <Link to='/' state={{ logo: false }}>
-                        <Logo height={50} />
+                        <Logo height={40} />
                     </Link>
                     {isMobile ? <NavMobile paths={paths} /> : <NavDesktop paths={paths} />}
                 </Header>
