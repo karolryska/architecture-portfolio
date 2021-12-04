@@ -25,7 +25,9 @@ export const Wrapper = styled.div`
     z-index: 101;
 
     &:hover div {
-        background-color: ${(props) => props.theme.colors.yellow};
+        @media (min-width: 769px) {
+            background-color: ${(props) => props.theme.colors.yellow};
+        }
     }
 `;
 
