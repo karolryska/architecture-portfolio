@@ -12,17 +12,39 @@ export const Wrapper = styled.li`
         height: 100%;
         width: 100%;
 
-        &:before {
+        &::before {
+            content: '';
+            position: absolute;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: ${(props) => props.theme.colors.black};
+            opacity: 0;
+            transition: 0.2s;
+        }
+
+        &::after {
             content: '${(props) => props.title}';
             position: absolute;
             z-index: 100;
             top: 50%;
             left: 50%;
-            color: white;
+            font-size: 40px;
+            font-weight: 500;
+            letter-spacing: 0.4px;
+            color: ${(props) => props.theme.colors.white};
             transform: translate(-50%, -50%);
             opacity: 0;
+            transition: 0.2s;
         }
+
         &:hover:before {
+            opacity: 0.7;
+        }
+
+        &:hover:after {
             opacity: 1;
         }
     }
