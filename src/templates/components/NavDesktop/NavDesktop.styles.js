@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 
 export const NavList = styled.ul`
     display: flex;
@@ -9,4 +10,16 @@ export const NavList = styled.ul`
 export const NavItem = styled.li`
     margin-left: 60px;
     text-decoration: none;
+`;
+
+export const StyledLink = styled(Link)`
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+    color: ${(props) => props.theme.colors.black};
+    transition: 0.2s;
+
+    &:hover {
+        color: ${(props) => props.theme.colors.yellow};
+    }
 `;

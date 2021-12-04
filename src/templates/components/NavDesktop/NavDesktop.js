@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import { NavList, NavItem } from './NavDesktop.styles';
+
+import { NavList, NavItem, StyledLink } from './NavDesktop.styles';
 
 const NavDesktop = ({ paths }) => {
     return (
@@ -8,12 +8,9 @@ const NavDesktop = ({ paths }) => {
             <NavList>
                 {paths.map((item) => (
                     <NavItem key={item[1]}>
-                        <Link
-                            to={`/${item[0]}`}
-                            style={{ color: 'black' }}
-                            state={{ animation: false }}>
+                        <StyledLink to={`/${item[0]}`} state={{ animation: false }}>
                             {item[1]}
-                        </Link>
+                        </StyledLink>
                     </NavItem>
                 ))}
             </NavList>
