@@ -16,7 +16,11 @@ const ContentWrapper = styled.div`
 `;
 
 const Description = styled.p`
-    margin-bottom: 20px;
+    margin: 0 0 20px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.5px;
     text-align: left;
 `;
 
@@ -28,18 +32,19 @@ const GraphicsWrapper = styled.div`
 
     @media (min-width: 769px) {
         margin-left: 100px;
+        justify-content: start;
     }
 `;
 
 const Image = styled.div`
-    height: 300px;
+    height: 260px;
     width: 100%;
     margin: 20px 0;
 
     @media (min-width: 769px) {
-        height: 300px;
-        width: 250px;
-        margin: 0 0 100px 0;
+        height: 260px;
+        width: 200px;
+        margin: 0 0 30px 0;
     }
 `;
 
@@ -56,13 +61,14 @@ const Icon = styled.div`
     height: 30px;
     width: 30px;
     border-radius: 15px;
-    background-color: black;
+    background-color: ${(props) => props.color};
+    /* background-color: black; */
     color: white;
     cursor: pointer;
     transition: 0.2s;
 
     &:hover {
-        opacity: 0.6;
+        background-color: ${(props) => props.theme.colors.yellow};
     }
 
     & svg {
@@ -92,10 +98,15 @@ const AboutPage = () => {
         <MainContent title='About me' description={data.mdx.body}>
             <ContentWrapper>
                 <Description style={{ display: 'inline-block' }}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    I have a lot of professional experience and several victories in competitions. I
+                    am currently working full time in 22 architects in Warsaw. In his free time he
+                    designs interiors for individual clients. Hence, I strongly encourage you to
+                    familiarize yourself with my interior designs. Personally, I am a very
+                    open-minded and outgoing person. Contact and cooperation is easy with me. My
+                    interests are snowboarding, surfing, drawing and my bike. I need to write
+                    something more about you because I feel like it makes more harmony in text. What
+                    do you think? And maybe one more line. I think we can figure it out what you
+                    should write here. It will not be that hard I guess. A few more words.
                 </Description>
                 <GraphicsWrapper>
                     <Image>
@@ -108,13 +119,13 @@ const AboutPage = () => {
                         />
                     </Image>
                     <IconsWrapper>
-                        <Icon>
+                        <Icon color={(props) => props.theme.colors.blue}>
                             <FaFacebookF />
                         </Icon>
-                        <Icon>
+                        <Icon color={(props) => props.theme.colors.burgundy}>
                             <FaPinterestP />
                         </Icon>
-                        <Icon>
+                        <Icon color={(props) => props.theme.colors.navy}>
                             <FaLinkedinIn />
                         </Icon>
                     </IconsWrapper>
