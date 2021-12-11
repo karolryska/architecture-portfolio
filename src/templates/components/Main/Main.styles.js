@@ -28,7 +28,7 @@ export const Header = styled.div`
 export const Title = styled(motion.h2)`
     align-self: flex-start;
     position: relative;
-    margin: 0 0 20px;
+    margin: 0 0 10px;
     font-size: 36px;
     font-weight: 800;
     letter-spacing: 1.4px;
