@@ -2,7 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import MainContent from '../templates/components/Main/Main';
-import ProjectsList from '../components/ProjecstList/ProjectsList';
+import ProjectsGrid from '../components/ProjectsGrid/ProjectsGrid';
 
 const InteriorsPage = () => {
     const data = useStaticQuery(graphql`
@@ -30,7 +30,7 @@ const InteriorsPage = () => {
 
     return (
         <MainContent title='Interiors' description={data.mdx.body}>
-            <ProjectsList projects={data.allMdx.nodes} />
+            <ProjectsGrid projects={data.allMdx.nodes} />
         </MainContent>
     );
 };

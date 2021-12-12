@@ -15,8 +15,8 @@ export const Wrapper = styled.ul`
     }
 `;
 
-export const Placeholder = styled.div`
+export const Project = styled.li`
+    display: block;
     height: 100%;
     width: 100%;
-    background-color: lightgrey;
 `;

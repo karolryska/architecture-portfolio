@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { getImage } from 'gatsby-plugin-image';
-import { Wrapper, Placeholder } from './ProjectsList.styles';
+import { Wrapper, Project } from './ProjectsGrid.styles';
 import ProjectLink from '../ProjectLink/ProjectLink';
 import formatIndex from '../../helpers.js/formatIndex';
 
-const ProjectsList = ({ projects }) => {
+const ProjectsGrid = ({ projects }) => {
     const [wrapperWidth, setWrapperWidth] = useState();
     const wrapperRef = useRef();
 
@@ -17,17 +17,19 @@ const ProjectsList = ({ projects }) => {
             {projects.map((project, i) => {
                 const image = getImage(project.frontmatter.hero_image);
                 const path = project.frontmatter.path;
-                return <ProjectLink key={path} image={image} title={formatIndex(i)} slug={path} wrapperWidth={wrapperWidth} />;
+                return (
+                    <Project key={project.id}>
+                        <ProjectLink
+                            image={image}
+                            title={formatIndex(i)}
+                            slug={path}
+                            wrapperWidth={wrapperWidth}
+                        />
+                    </Project>
+                );
             })}
-            <Placeholder />
-            <Placeholder />
-            <Placeholder />
-            <Placeholder />
-            <Placeholder />
-            <Placeholder />
-            <Placeholder />
         </Wrapper>
     );
 };
 
-export default ProjectsList;
+export default ProjectsGrid;
