@@ -3,16 +3,13 @@ import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
 export const StyledGatsbyImage = styled(GatsbyImage)`
-    position: relative;
     display: block;
-    height: 80vw;
+    height: 100%;
     width: 100%;
-    margin-bottom: 16px;
     overflow: hidden;
 
     @media (min-width: 769px) {
-        height: 100%;
-        width: 100%;
+        position: relative;
 
         &::before {
             content: '';
