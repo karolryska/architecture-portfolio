@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+import { Link } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
-export const Wrapper = styled.li`
+export const StyledGatsbyImage = styled(GatsbyImage)`
     position: relative;
     display: block;
     height: 80vw;
@@ -36,6 +38,7 @@ export const Wrapper = styled.li`
             letter-spacing: 0.4px;
             color: ${(props) => props.theme.colors.white};
             transform: translate(-50%, -50%);
+            text-transform: uppercase;
             opacity: 0;
             transition: 0.2s;
         }
@@ -48,4 +51,9 @@ export const Wrapper = styled.li`
             opacity: 1;
         }
     }
+`;
+
+export const StyledLink = styled(Link)`
+    height: 100%;
+    width: 100%;
 `;
