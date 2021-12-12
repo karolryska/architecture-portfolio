@@ -17,6 +17,12 @@ export const Wrapper = styled.ul`
 
 export const Project = styled.li`
     display: block;
-    height: 100%;
-    width: 100%;
+    height: 80vw;
+    width: 80vw;
+    margin-bottom: 16px;
+
+    @media (min-width: 769px) {
+        height: 100%;
+        width: 100%;
+    }
 `;

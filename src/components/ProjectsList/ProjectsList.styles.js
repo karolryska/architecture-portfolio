@@ -45,13 +45,15 @@ const fourth = (wrapperWidth) => {
 
 export const Project = styled.li`
     display: block;
-    height: ${(props) => props.wrapperWidth * 0.5}px;
-    width: ${(props) => props.wrapperWidth * 0.5}px;
-    background-color: lightgrey;
-    margin-bottom: -20px;
+    height: 80vw;
+    width: 80vw;
+    margin-bottom: 16px;
 
-    ${(props) => props.number === 1 && first(props.wrapperWidth)};
-    ${(props) => props.number === 2 && second(props.wrapperWidth)};
-    ${(props) => props.number === 3 && third(props.wrapperWidth)};
-    ${(props) => props.number === 4 && fourth(props.wrapperWidth)};
+    @media (min-width: 769px) {
+        margin-bottom: -20px;
+        ${(props) => props.number === 1 && first(props.wrapperWidth)};
+        ${(props) => props.number === 2 && second(props.wrapperWidth)};
+        ${(props) => props.number === 3 && third(props.wrapperWidth)};
+        ${(props) => props.number === 4 && fourth(props.wrapperWidth)};
+    }
 `;
