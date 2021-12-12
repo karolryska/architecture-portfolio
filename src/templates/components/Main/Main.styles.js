@@ -8,8 +8,10 @@ export const Section = styled.section`
     padding: 20px 0;
 
     @media (min-width: 769px) {
+        width: 100%;
+        position: relative;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: end;
         padding: 0 50px;
     }
 `;
@@ -20,8 +22,11 @@ export const Header = styled.div`
     justify-content: flex-start;
 
     @media (min-width: 769px) {
-        width: 40%;
-        padding: 100px 180px 0 0;
+        position: absolute;
+        top: 0;
+        left: 50px;
+        width: 25%;
+        padding-top: 100px;
     }
 `;
 
@@ -68,7 +73,7 @@ export const Content = styled.article`
     min-height: 100%;
 
     @media (min-width: 769px) {
-        width: 60%;
+        width: ${(props) => (props.fullWidth === true ? '100%' : '60%')};
     }
 `;
 

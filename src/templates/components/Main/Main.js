@@ -1,16 +1,9 @@
 import React from 'react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import useWidth from '../../../hooks/useWidth';
-import {
-    Section,
-    Header,
-    Title,
-    Description,
-    Content,
-    contentTransition,
-} from './Main.styles';
+import { Section, Header, Title, Description, Content, contentTransition } from './Main.styles';
 
-const Main = ({ children, title, description, descritpionMobile }) => {
+const Main = ({ children, title, description, descritpionMobile, fullWidth }) => {
     const [isMobile] = useWidth();
 
     return (
@@ -29,7 +22,7 @@ const Main = ({ children, title, description, descritpionMobile }) => {
                     </Description>
                 )}
             </Header>
-            <Content>{children}</Content>
+            <Content fullWidth={fullWidth}>{children}</Content>
         </Section>
     );
 };
