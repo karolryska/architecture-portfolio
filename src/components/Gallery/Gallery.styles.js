@@ -14,6 +14,7 @@ export const Wrapper = styled.div`
 `;
 
 export const MainImage = styled.div`
+    position: relative;
     height: 400px;
     width: 100%;
     margin-bottom: ${gridGap}px;
@@ -30,4 +31,11 @@ export const ImagesContainer = styled.div`
 export const Image = styled.div`
     height: ${calcImageHeight(600)}px;
     background-color: lightgray;
+`;
+
+export const Button = styled.button`
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 `;

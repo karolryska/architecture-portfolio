@@ -1,24 +1,62 @@
 import React, { useState } from 'react';
 import { getImage } from 'gatsby-plugin-image';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { Wrapper, MainImage, ImagesContainer, Image } from './Gallery.styles';
+import { Wrapper, MainImage, ImagesContainer, Image, Button } from './Gallery.styles';
+import arrowLeft from '../../assets/icons/arrow_left.svg';
+import arrowRight from '../../assets/icons/arrow_right.svg';
+import { useEffect } from 'react';
 
 const Gallery = ({ images }) => {
-    const [mainImage, setMainImage] = useState(images[0]);
+    const [mainImageIndex, setMainImageIndex] = useState(0);
     const handleClick = (index) => {
-        setMainImage(images[index]);
+        setMainImageIndex(index);
     };
+
+    const handleClickButton = (direction) => {
+        if (direction === 'left') {
+            mainImageIndex === 0
+                ? setMainImageIndex(images.length - 1)
+                : setMainImageIndex(mainImageIndex - 1);
+        } else {
+            mainImageIndex === images.length - 1
+                ? setMainImageIndex(0)
+                : setMainImageIndex(mainImageIndex + 1);
+        }
+    };
+
+    useEffect(() => {
+        console.log(mainImageIndex);
+    });
+
     return (
         <Wrapper>
             <MainImage>
                 <GatsbyImage
-                    image={getImage(mainImage)}
+                    image={getImage(images[mainImageIndex])}
                     alt='image'
                     style={{
                         width: '100%',
                         height: '100%',
                     }}
                 />
+                <Button
+                    style={{
+                        top: '50%',
+                        left: '-40px',
+                        transform: 'translateY(-50%)',
+                    }}
+                    onClick={() => handleClickButton('left')}>
+                    <img src={arrowLeft} />
+                </Button>
+                <Button
+                    style={{
+                        top: '50%',
+                        right: '-40px',
+                        transform: 'translateY(-50%)',
+                    }}
+                    onClick={() => handleClickButton('right')}>
+                    <img src={arrowRight} />
+                </Button>
             </MainImage>
             <ImagesContainer>
                 {images.map((item, i) => {
