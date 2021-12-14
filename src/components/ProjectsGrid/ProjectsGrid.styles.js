@@ -5,7 +5,7 @@ export const Wrapper = styled.ul`
     flex-direction: column;
     width: 100%;
     padding: 0;
-    margin-top: 0;
+    margin: 0;
 
     @media (min-width: 769px) {
         display: inline-grid;
@@ -20,6 +20,10 @@ export const Project = styled.li`
     height: 80vw;
     width: 80vw;
     margin-bottom: 16px;
+
+    &:nth-last-child(1) {
+        margin-bottom: 0;
+    }
 
     @media (min-width: 769px) {
         height: 100%;

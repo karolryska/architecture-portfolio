@@ -5,7 +5,7 @@ export const Wrapper = styled.ul`
     flex-direction: column;
     width: 100%;
     padding: 0;
-    margin-top: 0;
+    margin: 0;
 
     @media (min-width: 769px) {
         align-items: center;
@@ -14,14 +14,16 @@ export const Wrapper = styled.ul`
 
 const first = (wrapperWidth) => {
     return `
-        transform: translateX(40%);
+        margin-bottom: -${wrapperWidth * 0.5 * 0.4}px;
+        transform: translate(40%);
         height: ${wrapperWidth * 0.5}px;
         width: ${wrapperWidth * 0.5}px;
     `;
 };
 const second = (wrapperWidth) => {
     return `
-        transform: translate(-30%, -10%);
+        margin-bottom: ${wrapperWidth * 0.35 * 0.1}px;
+        transform: translateX(-30%);
         height: ${wrapperWidth * 0.35}px;
         width: ${wrapperWidth * 0.35}px;
     `;
@@ -29,15 +31,18 @@ const second = (wrapperWidth) => {
 
 const third = (wrapperWidth) => {
     return `
+        margin-bottom: -${wrapperWidth * 0.5 * 0.3}px;
         transform: translateX(40%);
         height: ${wrapperWidth * 0.35}px;
         width: ${wrapperWidth * 0.35}px;
+        z-index: 100;
     `;
 };
 
 const fourth = (wrapperWidth) => {
     return `
-        transform: translate(-50%, -10%);
+        margin-bottom: ${wrapperWidth * 0.35 * 0.1}px;
+        transform: translateX(-40%);
         height: ${wrapperWidth * 0.5}px;
         width: ${wrapperWidth * 0.5}px;
     `;
@@ -49,8 +54,12 @@ export const Project = styled.li`
     width: 80vw;
     margin-bottom: 16px;
 
+    &:nth-last-child(1) {
+        margin-bottom: 0;
+    }
+
     @media (min-width: 769px) {
-        margin-bottom: -20px;
+        margin-bottom: 0;
         ${(props) => props.number === 1 && first(props.wrapperWidth)};
         ${(props) => props.number === 2 && second(props.wrapperWidth)};
         ${(props) => props.number === 3 && third(props.wrapperWidth)};
