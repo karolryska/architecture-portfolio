@@ -6,10 +6,7 @@ import Gallery from '../../components/Gallery/Gallery';
 
 const ProjectLayout = ({ data }) => {
     return (
-        <MainContent
-            title={data.mdx.frontmatter.title}
-            description={data.mdx.body}
-            descritpionOnMobile='true'>
+        <MainContent title={data.mdx.frontmatter.title} description={data.mdx.body}>
             <Gallery images={data.allFile.nodes}></Gallery>
         </MainContent>
     );
@@ -24,12 +21,7 @@ export const query = graphql`
             body
             slug
         }
-        allFile(
-            filter: {
-                extension: { eq: "jpg" }
-                relativeDirectory: { eq: $dir }
-            }
-        ) {
+        allFile(filter: { extension: { eq: "jpg" }, relativeDirectory: { eq: $dir } }) {
             nodes {
                 id
                 childImageSharp {

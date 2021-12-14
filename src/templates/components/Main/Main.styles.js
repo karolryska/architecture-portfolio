@@ -52,15 +52,15 @@ export const Title = styled(motion.h2)`
 `;
 
 export const Description = styled(motion.p)`
-    display: ${(props) => (props.visibleOnMobile === 'true' ? 'inline' : 'none')};
     margin: 0;
     font-size: 14px;
     font-weight: 400;
     line-height: 24px;
     letter-spacing: 0.5px;
+    text-align: left;
 
     & p {
-        margin: 0;
+        margin: 0 0 14px;
     }
 
     @media (min-width: 769px) {
