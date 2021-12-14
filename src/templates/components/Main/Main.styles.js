@@ -5,7 +5,7 @@ export const Section = styled.section`
     display: flex;
     flex-direction: column;
     min-height: 100%;
-    padding: 20px 0;
+    padding-top: 20px;
 
     @media (min-width: 769px) {
         width: 100%;
