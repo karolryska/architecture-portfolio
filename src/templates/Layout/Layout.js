@@ -22,7 +22,10 @@ const Layout = ({ children }) => {
         <Theme>
             <GlobalStyle />
             <Wrapper>
-                <Header initial={{ y: -50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.2, delay: 2.5 }}>
+                <Header
+                    initial={{ y: -50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.2, delay: 2.5 }}>
                     <Link to='/' state={{ logo: false }}>
                         <Logo height={40} />
                     </Link>
@@ -30,7 +33,7 @@ const Layout = ({ children }) => {
                 </Header>
                 <Main>{children}</Main>
                 <Footer>
-                    <p>code by</p>
+                    <p>private policy | all rights reserved | 2022</p>
                 </Footer>
             </Wrapper>
         </Theme>
