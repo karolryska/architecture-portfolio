@@ -32,9 +32,16 @@ export const Header = styled(motion.header)`
 export const Main = styled.main`
     width: 100%;
     flex-grow: 1;
+    margin-bottom: 20px;
+
+    @media (min-width: 769px) {
+        margin-bottom: 50px;
+    }
 `;
 
 export const Footer = styled.footer`
+    margin-bottom: 10px;
     height: 100%;
+    font-size: 12px;
     text-align: center;
 `;
