@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { getImage } from 'gatsby-plugin-image';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { Wrapper, MainImage, ImagesContainer, Image, Button } from './Gallery.styles';
 import arrowLeft from '../../assets/icons/arrow_left.svg';
 import arrowRight from '../../assets/icons/arrow_right.svg';
-import { useEffect } from 'react';
 
 const Gallery = ({ images }) => {
     const [mainImageIndex, setMainImageIndex] = useState(0);
+    const [wrapperWidth, setWrapperWidth] = useState();
+    const wrapperRef = useRef();
+
     const handleClick = (index) => {
         setMainImageIndex(index);
     };
@@ -25,12 +27,12 @@ const Gallery = ({ images }) => {
     };
 
     useEffect(() => {
-        console.log(mainImageIndex);
-    });
+        wrapperRef.current && setWrapperWidth(wrapperRef.current.offsetWidth);
+    }, []);
 
     return (
-        <Wrapper>
-            <MainImage>
+        <Wrapper ref={wrapperRef}>
+            <MainImage wrapperWidth={wrapperWidth}>
                 <GatsbyImage
                     image={getImage(images[mainImageIndex])}
                     alt='image'
@@ -62,7 +64,10 @@ const Gallery = ({ images }) => {
                 {images.map((item, i) => {
                     const image = getImage(item);
                     return (
-                        <Image key={item.id} onClick={() => handleClick(i)}>
+                        <Image
+                            key={item.id}
+                            onClick={() => handleClick(i)}
+                            wrapperWidth={wrapperWidth}>
                             <GatsbyImage
                                 image={image}
                                 alt='image'
