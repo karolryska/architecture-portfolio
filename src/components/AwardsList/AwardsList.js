@@ -3,18 +3,18 @@ import { Wrapper, Award } from './AwardsList.styles';
 
 const AwardsList = () => (
     <Wrapper>
-        <li>
-            <Award>Lorem ipsum</Award>
-        </li>
-        <li>
-            <Award>Lorem ipsum</Award>
-        </li>
-        <li>
-            <Award>Lorem ipsum</Award>
-        </li>
-        <li>
-            <Award>Lorem ipsum</Award>
-        </li>
+        <Award>
+            <p>Lorem ipsum</p>
+        </Award>
+        <Award>
+            <p>Lorem ipsum</p>
+        </Award>
+        <Award>
+            <p>Lorem ipsum</p>
+        </Award>
+        <Award>
+            <p>Lorem ipsum</p>
+        </Award>
     </Wrapper>
 );
 
