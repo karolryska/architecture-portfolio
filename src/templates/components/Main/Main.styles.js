@@ -5,7 +5,6 @@ export const Section = styled.section`
     display: flex;
     flex-direction: column;
     min-height: 100%;
-    padding-top: 20px;
 
     @media (min-width: 769px) {
         width: 100%;
@@ -41,11 +40,11 @@ export const Title = styled(motion.h2)`
     &::before {
         content: '';
         position: absolute;
-        top: 26px;
-        right: -12px;
+        top: 28px;
+        right: -8px;
         display: block;
-        height: 8px;
-        width: 8px;
+        height: 6px;
+        width: 6px;
         background-color: black;
         z-index: 10;
     }
