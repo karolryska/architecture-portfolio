@@ -22,7 +22,10 @@ export const NavItem = styled.li`
     margin-bottom: 30px;
     font-size: 36px;
     font-weight: 800;
-    text-decoration: none;
     text-align: left;
-    color: black;
+
+    & a {
+        color: ${(props) => props.theme.colors.black};
+        text-decoration: none;
+    }
 `;
