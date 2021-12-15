@@ -24,6 +24,7 @@ export const Header = styled(motion.header)`
     height: 100px;
     width: 100%;
     z-index: 100;
+
     @media (min-width: 769px) {
         height: 160px;
     }
@@ -32,10 +33,10 @@ export const Header = styled(motion.header)`
 export const Main = styled.main`
     width: 100%;
     flex-grow: 1;
-    margin-bottom: 20px;
+    margin: 5px 0 25px;
 
     @media (min-width: 769px) {
-        margin-bottom: 50px;
+        margin: 0 0 30px;
     }
 `;
 
