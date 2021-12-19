@@ -4,7 +4,6 @@ const gridGap = 10;
 
 export const calcImageHeight = (containerWidth) => {
     const imageWidth = (containerWidth - 2 * gridGap) / 3;
-    console.log((imageWidth / 3) * 2);
     return (imageWidth / 3) * 2;
 };
 
