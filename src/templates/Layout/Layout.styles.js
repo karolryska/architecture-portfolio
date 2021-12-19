@@ -5,14 +5,19 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    max-width: 1200px;
     padding: 0 10vw;
     margin: auto;
     overflow: hidden;
     text-align: center;
+
     @media (min-width: 769px) {
-        max-width: 1280px;
         padding: 0;
+        margin: 0 10vw;
+    }
+
+    @media (min-width: 1280px) {
+        max-width: 1280px;
+        margin: auto;
     }
 `;
 
