@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'gatsby';
+
 import Theme from '../../theme/theme';
 import { GlobalStyle } from '../../theme/GlobalStyle';
 import useWidth from '../../hooks/useWidth';
@@ -17,25 +18,28 @@ const paths = [
 
 const Layout = ({ children }) => {
     const [isMobile] = useWidth();
+    const [logoIsActive, setLogoIsActive] = useState(true);
+    setTimeout(() => setLogoIsActive(false), 2000);
 
     return (
         <Theme>
             <GlobalStyle />
-            <Wrapper>
-                <Header
-                    initial={{ y: -50, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.2, delay: 2.5 }}>
-                    <Link to='/' state={{ logo: false }}>
-                        <Logo height={40} />
-                    </Link>
-                    {isMobile ? <NavMobile paths={paths} /> : <NavDesktop paths={paths} />}
-                </Header>
-                <Main>{children}</Main>
-                <Footer>
-                    <p>private policy | all rights reserved | 2022</p>
-                </Footer>
-            </Wrapper>
+            {logoIsActive ? (
+                <Logo animation={true} height={100} />
+            ) : (
+                <Wrapper>
+                    <Header>
+                        <Link to='/' state={{ logo: false }}>
+                            <Logo height={40} />
+                        </Link>
+                        {isMobile ? <NavMobile paths={paths} /> : <NavDesktop paths={paths} />}
+                    </Header>
+                    <Main>{children}</Main>
+                    <Footer>
+                        <p>private policy | all rights reserved | 2022</p>
+                    </Footer>
+                </Wrapper>
+            )}
         </Theme>
     );
 };
