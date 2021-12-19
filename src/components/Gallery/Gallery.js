@@ -26,8 +26,13 @@ const Gallery = ({ images }) => {
         }
     };
 
+    const setWidth = () => setWrapperWidth(wrapperRef.current.offsetWidth);
+
     useEffect(() => {
-        wrapperRef.current && setWrapperWidth(wrapperRef.current.offsetWidth);
+        wrapperRef.current && setWidth();
+        window.addEventListener('resize', setWidth);
+
+        return () => window.removeEventListener('resize', setWidth);
     }, []);
 
     return (

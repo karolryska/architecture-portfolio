@@ -8,13 +8,13 @@ const ProjectsList = ({ projects }) => {
     const wrapperRef = useRef();
     let counter = 0;
 
-    useEffect(() => {
-        wrapperRef.current && setWrapperWidth(wrapperRef.current.offsetWidth);
-        window.addEventListener('resize', () => setWrapperWidth(wrapperRef.current.offsetWidth));
+    const setWidth = () => setWrapperWidth(wrapperRef.current.offsetWidth);
 
-        return window.removeEventListener('resize', () =>
-            setWrapperWidth(wrapperRef.current.offsetWidth)
-        );
+    useEffect(() => {
+        wrapperRef.current && setWidth();
+        window.addEventListener('resize', setWidth);
+
+        return () => window.removeEventListener('resize', setWidth);
     }, []);
 
     return (
