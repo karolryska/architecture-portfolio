@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 
-import Theme from '../../theme/theme';
+import Theme from '../../theme/Theme';
 import { GlobalStyle } from '../../theme/GlobalStyle';
 import useWidth from '../../hooks/useWidth';
 import { Wrapper, Header, Main, Footer } from './Layout.styles';
