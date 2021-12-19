@@ -1,10 +1,14 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
+import useWidth from '../hooks/useWidth';
 import MainContent from '../templates/components/Main/Main';
+import MobileList from '../components/MobileList/MobileList';
 import ProjectsGrid from '../components/ProjectsGrid/ProjectsGrid';
 
 const InteriorsPage = () => {
+    const [isMobile] = useWidth();
+
     const data = useStaticQuery(graphql`
         {
             allMdx(filter: { frontmatter: { type: { eq: "interior" } } }) {
@@ -26,11 +30,13 @@ const InteriorsPage = () => {
         }
     `);
 
-    console.log(data.mdx.body);
-
     return (
         <MainContent title='Interiors' description={data.mdx.body}>
-            <ProjectsGrid projects={data.allMdx.nodes} />
+            {isMobile ? (
+                <MobileList projects={data.allMdx.nodes} />
+            ) : (
+                <ProjectsGrid projects={data.allMdx.nodes} />
+            )}
         </MainContent>
     );
 };
