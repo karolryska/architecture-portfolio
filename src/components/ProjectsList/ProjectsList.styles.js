@@ -6,10 +6,7 @@ export const Wrapper = styled.ul`
     width: 100%;
     padding: 0;
     margin: 0;
-
-    @media (min-width: 769px) {
-        align-items: center;
-    }
+    align-items: center;
 `;
 
 const first = (wrapperWidth) => {
@@ -50,19 +47,9 @@ const fourth = (wrapperWidth) => {
 
 export const Project = styled.li`
     display: block;
-    height: 80vw;
-    width: 80vw;
-    margin-bottom: 16px;
-
-    &:nth-last-child(1) {
-        margin-bottom: 0;
-    }
-
-    @media (min-width: 769px) {
-        margin-bottom: 0;
-        ${(props) => props.number === 1 && first(props.wrapperWidth)};
-        ${(props) => props.number === 2 && second(props.wrapperWidth)};
-        ${(props) => props.number === 3 && third(props.wrapperWidth)};
-        ${(props) => props.number === 4 && fourth(props.wrapperWidth)};
-    }
+    margin-bottom: 0;
+    ${(props) => props.number === 1 && first(props.wrapperWidth)};
+    ${(props) => props.number === 2 && second(props.wrapperWidth)};
+    ${(props) => props.number === 3 && third(props.wrapperWidth)};
+    ${(props) => props.number === 4 && fourth(props.wrapperWidth)};
 `;
