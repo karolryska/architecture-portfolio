@@ -68,7 +68,7 @@ export const Description = styled(motion.p)`
     }
 `;
 
-export const Content = styled.article`
+export const Content = styled(motion.article)`
     min-height: 100%;
 
     @media (min-width: 769px) {
@@ -77,8 +77,10 @@ export const Content = styled.article`
 `;
 
 export const contentTransition = {
+    opacity: 0,
+    y: 30,
+    ease: 'power3.out',
     duration: 0.2,
-    delay: 0.2,
 };
 
 export const contentTransitionDelay = {
