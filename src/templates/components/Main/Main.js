@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import gsap from 'gsap';
-import { Section, Header, Title, Description, Content, contentTransition } from './Main.styles';
+import { Section, Header, Title, Description, Content, transition } from './Main.styles';
 
 const Main = ({ children, title, description, fullWidth }) => {
     const headerRef = useRef(null);
@@ -9,11 +9,11 @@ const Main = ({ children, title, description, fullWidth }) => {
 
     useEffect(() => {
         gsap.from(headerRef.current.children, {
-            ...contentTransition,
+            ...transition,
             stagger: 0.4,
         });
         gsap.from(contentRef.current.children, {
-            ...contentTransition,
+            ...transition,
             delay: 0.8,
         });
     }, []);

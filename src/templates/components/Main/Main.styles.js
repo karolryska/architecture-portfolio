@@ -76,14 +76,9 @@ export const Content = styled(motion.article)`
     }
 `;
 
-export const contentTransition = {
+export const transition = {
     opacity: 0,
     y: 30,
     ease: 'power3.out',
     duration: 0.2,
-};
-
-export const contentTransitionDelay = {
-    duration: 0.2,
-    delay: 2.7,
 };
