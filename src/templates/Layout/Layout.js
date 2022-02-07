@@ -26,8 +26,12 @@ const Layout = ({ children }) => {
         <Theme>
             <GlobalStyle />
             <Helmet>
-                <meta charset='utf-8' />
+                <html lang='en' />
                 <title>Tomasz Jakubowski</title>
+                <meta
+                    name='description'
+                    content="Tomasz Jakubowski's portfolio, architecture and interiors projects."
+                />
             </Helmet>
             {logoIsActive ? (
                 <Logo animation={true} height={100} />
