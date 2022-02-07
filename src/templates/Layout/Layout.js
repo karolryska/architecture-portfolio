@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
+import { Helmet } from 'react-helmet';
 
 import Theme from '../../theme/Theme';
 import { GlobalStyle } from '../../theme/GlobalStyle';
@@ -24,6 +25,10 @@ const Layout = ({ children }) => {
     return (
         <Theme>
             <GlobalStyle />
+            <Helmet>
+                <meta charset='utf-8' />
+                <title>Tomasz Jakubowski</title>
+            </Helmet>
             {logoIsActive ? (
                 <Logo animation={true} height={100} />
             ) : (
