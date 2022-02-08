@@ -27,11 +27,19 @@ const Layout = ({ children }) => {
             <GlobalStyle />
             <Helmet>
                 <html lang='en' />
-                <title>Tomasz Jakubowski</title>
+                <title>Tomasz Jakubowski - architecture portfolio</title>
                 <meta
                     name='description'
-                    content="Tomasz Jakubowski's portfolio, architecture and interiors projects."
+                    content="Tomasz Jakubowski's portfolio, architecture and interior design."
                 />
+                <meta property='og:title' content='Tomasz Jakubowski - architecture portfolio' />
+                <meta
+                    property='og:description'
+                    content="Tomasz Jakubowski's portfolio, architecture and interior design."
+                />
+                <meta property='og:url' content='https://tjakubowski.netlify.app/' />
+                <meta property='og:image' content='https://tjakubowski.netlify.app/img/cover.png' />
+                <meta property='og:type' content='website' />
             </Helmet>
             {logoIsActive ? (
                 <Logo animation={true} height={100} />
